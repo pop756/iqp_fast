@@ -109,8 +109,11 @@ PYTHONPATH=. python tests/test_smoke.py
 
 - `iqp_fast/`: the estimator and the MMD loss (iqpopt with the new paths). The GPU kernels are in
   `iqp_fast/_kernels.hip` and are called through `jax.ffi` from `iqp_fast/_fastpath.py`.
-- `randomized_iqp/`: training utilities for IQP circuits with ancilla branches, including
+- `randomized_iqp/`: training utilities for the mixed IQP-QCBM, including
   `branch_weighted_mixture_mmd_loss`.
+  - The mixed IQP-QCBM writes an ancilla-extended IQP circuit as a weighted mixture of ancilla-free IQP
+    circuits ("branches").
+  - The model is described in Lee & Kim, arXiv:2607.27883.
 
 ## How it was made
 
@@ -133,3 +136,8 @@ If you use this software, please cite the iqpopt paper:
 
 > E. Recio-Armengol, J. Bowles, *IQPopt: Fast optimization of instantaneous quantum polynomial circuits in
 > JAX*, arXiv:2501.04776.
+
+If you use `randomized_iqp`, the mixed IQP-QCBM and its branch-weighted MMD loss, please also cite:
+
+> Y. Lee, H. Kim, *Trainability and Mode Separation of Mixed IQP-QCBMs*, arXiv:2607.27883 (2026).
+> https://arxiv.org/abs/2607.27883
