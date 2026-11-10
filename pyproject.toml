@@ -1,0 +1,36 @@
+[build-system]
+requires = ["setuptools >= 77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "iqp-fast"
+version = "0.1.0"
+description = "Faster iqpopt: the IQP circuit Monte Carlo estimator with GPU kernels"
+readme = "README.md"
+license = "Apache-2.0"
+license-files = ["LICENSE", "NOTICE"]
+requires-python = ">=3.10"
+classifiers = ["Programming Language :: Python :: 3"]
+dependencies = [
+    "jax>=0.6",
+    "numpy",
+    "scipy",
+    "pennylane",
+    "cvxpy",
+    "networkx",
+    "jaxopt",
+    "optax",
+    "tqdm",
+]
+
+[project.optional-dependencies]
+research = ["torch", "pyyaml", "pandas"]
+
+[project.urls]
+Upstream = "https://github.com/XanaduAI/iqpopt"
+
+[tool.setuptools.packages.find]
+include = ["iqp_fast*", "randomized_iqp*"]
+
+[tool.setuptools.package-data]
+iqp_fast = ["_kernels.hip"]

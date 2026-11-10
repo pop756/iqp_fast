@@ -1,0 +1,18 @@
+iqp_fast
+Modifications Copyright 2026 Youngseok Lee
+
+This product includes software derived from iqpopt
+(https://github.com/XanaduAI/iqpopt), licensed under the Apache License,
+Version 2.0.
+
+- The files under iqp_fast/ that come from iqpopt were modified. The package
+  was renamed to iqp_fast and, among other changes, the following were added: float32 defaults,
+  grouped and pairwise expectation paths, branch/label conditioning of the
+  estimator and the MMD loss, and a sparse-op GPU kernel path. Each such file
+  states its changes in its header.
+- randomized_iqp/trainer.py contains MMD loss estimators adapted from iqpopt
+  and modified. Its header says so.
+
+The rest is new work, Copyright 2026 Youngseok Lee, licensed under the Apache
+License, Version 2.0: iqp_fast/_fastpath.py, iqp_fast/_kernels.hip, the
+remaining randomized_iqp/ files and tests/.
